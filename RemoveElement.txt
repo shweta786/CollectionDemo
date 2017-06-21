@@ -1,0 +1,12 @@
+Removing Element from collection safely:
+Normally when you remove an element from a collection while looping over the collection, you'll get a Concurrent Modification Exception. This is partially why the Iterator interface has a remove() method. Using an iterator is the only safe way to modify a collection of elements while traversing them.
+Ex-
+Set<SomeClass> set = new HashSet<SomeClass>();
+fillSet(set);
+Iterator<SomeClass> setIterator = set.iterator();
+while (setIterator.hasNext()) {
+    SomeClass currentElement = setIterator.next();
+    if (setOfElementsToRemove(currentElement).size() > 0) {
+        setIterator.remove();
+    }
+}
