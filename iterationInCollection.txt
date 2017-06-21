@@ -1,0 +1,45 @@
+/* There are basically 3 ways of iterating collections and more extensions of 'for loop' can be used-
+
+1) for loop
+2) iterator() method
+3) Enhanced for loop
+4) for each loop
+
+1) for loop- most simple and familiar way to iterate through collection. It can print data in numeric order like 1,2,3.... But in this, the collection should be index based and size should be known.
+
+  ex-	for(int i=0;i<listNames.size(); i++)                    //for a list called listNames
+	{
+		String a= listNames.get(i);
+		System.out.println(a);
+	}
+
+2) iterator()- Collection interface has iterator() method. This is widely used for iteration.
+  
+  ex-	Iterator it= listNames.iterator();  			// iterating through a list
+	 while(it.hasNext())
+	 {
+		String name- it.next();
+		System.out.println(name);
+	 }
+
+  ex-	Map<Integer, String> mp= new HashMap();                 //iterating through a Map mp
+	mp.put(65, "A");					// inserting element(key and value) in map
+	mp.put(66, "B");
+	  Iterator<Integer> it= mp.keySet().iterator();
+	while(it.hasNext())
+	{
+		Integer key= it.next();				//getting next key in 'key'
+		String value= mp.get(key);			// getting value associated with 'key'
+		System.out.println(key + value);
+	}
+
+3) Enhanced for loop- It actually uses iterator() behind the scene.
+
+  ex-	for(String a: listNames)
+ 	 System.out.println(a);
+
+4) for each loop-  In this, collection handles the iteration itself, programmer pass the action what needs to do in each iteration.
+
+  ex-	listNames.forEach(name-> System.out.println(name));   			  //printing all names of a list
+ 
+  ex-	mp.forEach((key,value)-> System.out.println(key+ value)); 		 // printing elements(key and value) of a map
